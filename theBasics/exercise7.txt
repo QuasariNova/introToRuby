@@ -1,0 +1,19 @@
+What does the following error message tell you?
+
+SyntaxError: (irb):2: syntax error, unexpected ')', expecting '}'
+  from /usr/local/rvm/rubies/ruby-2.5.3/bin/irb:16:in `<main>'
+
+From what we've been taught, this is probably related to a hash being declared. I suspect that instead of ending it with a }, someone mistyped and ended it with a ).
+
+
+Checking on irb:
+
+irb(main):001:0> {syntax:nil)
+Traceback (most recent call last):
+        3: from /usr/bin/irb:23:in `<main>'
+        2: from /usr/bin/irb:23:in `load'
+        1: from /usr/lib/ruby/gems/2.7.0/gems/irb-1.2.1/exe/irb:11:in `<top (required)>'
+SyntaxError ((irb):1: syntax error, unexpected ')', expecting '}')
+{syntax:nil)
+
+The error is the same, so it seems like my conclusion is reasonable.
