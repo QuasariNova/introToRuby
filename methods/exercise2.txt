@@ -1,0 +1,21 @@
+What do the following expressions evaluate to? That is, what value does each expression return?
+
+  1. x = 2
+
+2
+
+  2. puts x = 2
+
+nil
+
+  3. p name = "Joe"
+
+This one is tricky as p returns it's evaluation, unlike puts. Had to run in irb to check. So, it returns "Joe"
+
+  4. four = "four"
+
+"four"
+
+  5. print something = "nothing"
+
+print is like puts and returns nil. I again had to test this in irb to make sure.
