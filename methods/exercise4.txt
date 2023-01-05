@@ -1,0 +1,11 @@
+What will the following code print to the screen?
+
+def scream(words)
+  words = words + "!!!!"
+  return
+  puts words
+end
+
+scream("Yippeee")
+
+Since the scream method explicitly returns before it invokes puts to output words onto the screen, this code will print nothing to the screen.
