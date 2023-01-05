@@ -1,0 +1,40 @@
+What will each block of code below print to the screen? Write your answer on a
+piece of paper or in a text editor and then run each block of code to see if
+you were correct.
+
+  # Snippet 1
+  '4' == 4 ? puts("TRUE") : puts("FALSE")
+
+The string literal '4' does not equal the integer literal 4, so this ternary is
+going to use the false expression, printing "FALSE" to the screen.
+
+  # Snippet 2
+  x = 2
+  if ((x * 3) / 2) == (4 + 4 - x - 3)
+    puts "Did you get it right?"
+  else
+    puts "Did you?"
+  end
+
+x * 3 is 6 and dividing that by 2 gives us 3, while 4 + 4 is 8, minus x is 6,
+and minux 3 gives us 6. 6 is equal to 6, so it will print "Did
+you get it right?" onto the screen.
+
+  # Snippet 3
+  y = 9
+  x = 10
+  if (x + 1) <= (y)
+    puts "Alright."
+  elsif (x + 1) >= (y)
+    puts "Alright now!"
+  elsif (y + 1) == x
+    puts "ALRIGHT NOW!"
+  else
+    puts "Alrighty!"
+  end
+
+x + 1 is 11, which is not less than or equal to 9, so we can ignore the first
+part of the statement. On the elseif, x+1 is 11, which is greater than or equal
+to 9, which means the statement will print "Alright now!" to the screen. While
+the next elsif is true, this one already executed, so we ignore everything
+after.
