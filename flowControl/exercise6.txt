@@ -1,0 +1,40 @@
+Write down whether the following expressions return true or false or raise an
+error. Then, type the expressions into irb to see the results.
+
+  (32 * 4) >= "129"
+
+You can't compare greather than or less than between a string literal and a number literal. This should output an error. Which it did when I tested:
+  irb(main):001:0> (32 * 4) >= "129"
+  Traceback (most recent call last):
+          5: from /usr/bin/irb:23:in `<main>'
+          4: from /usr/bin/irb:23:in `load'
+          3: from /usr/lib/ruby/gems/2.7.0/gems/irb-1.2.1/exe/irb:11:in `<top (required)>'
+          2: from (irb):1
+          1: from (irb):1:in `>='
+  ArgumentError (comparison of Integer with String failed)
+
+  847 == '847'
+
+Equality can be checked between an number and a string, but should always
+return false, since they are two different types of literals. This evaluates as
+false.
+
+  '847' < '846'
+
+Strings are funny with the < or > operators. It checks each character until it
+finds one that is less than or greater than before returning the value. In this
+case, the first two characters are equal, but 7 is higher than 6, so this
+should evaluate as false.
+
+  '847' > '846'
+
+This is the opposite of the last. 7 is greater than 6 and the two strings are
+the same length, so it evaluates as true.
+
+  '847' > '8478'
+
+This is another funny case of string comparitors. The first three digits are all the same, but the right side has more digits. In this case, the right side is considered greater than the left. So this evaluates as false.
+
+  '847' < '8478'
+
+  This is opposite of the last and evaluates as true.
