@@ -1,0 +1,45 @@
+Write down whether the following expressions return true or false. Then type
+the expressions into irb to see the results.
+
+  (32 * 4) >= 129
+
+32 * 4 is 128, so it is not greater than or equal to 129. false
+
+  false != !true
+
+!true evaluates as false. false equals false, so this evaulates as false
+
+  true == 4
+
+While 4 would evaluate was true in an if statement, as a literal, it is not the
+same thing as true as a literal, thus this would evaluate as false.
+
+  false == (847 == '847')
+
+The parenthesis are evaulated first and 847 as an integer does not equal the
+'847' string, so the parenthesis evaluates as false. False is equal to false,
+so this will evaluate as true.
+
+  (!true || (!(100 / 5) == 20) || ((328 / 4) == 82)) || false
+
+This is hard to just visualize. Lets start with the left parenthesis, since the
+right most || doesn't matter because it's false:
+
+  (!true || (!(100 / 5) == 20) || ((328 / 4) == 82))
+
+!true evaluates as false. Since it's on the left side of the || and its not
+true, we need to evaluate the right side of it.
+
+  ((!(100 / 5) == 20) || ((328 / 4) == 82))
+
+First the parenthesis. 100/5 is 20. I assume == will evaluate before the !, but
+if it doesn't, this would throw an error possibly. 20 equals 20, so that would
+become true, but the ! means true isn't false so this whole thing would be
+false.
+
+  ((328 / 4) == 82)
+
+Since the left side is false, we gotta evaluate the right side of the
+second ||. 328 / 4 evaluates as 82. 82 is 82, thus we got a true value.
+Anything || with true will be true and everything is ||, we don't need to
+evaluate anything else. This evaluates as true.
