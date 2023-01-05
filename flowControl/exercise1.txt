@@ -37,6 +37,11 @@ if it doesn't, this would throw an error possibly. 20 equals 20, so that would
 become true, but the ! means true isn't false so this whole thing would be
 false.
 
+CORRECTION: From watching the solution, while I got the final answer correct, I
+was wrong about how the ! was handled. It did evaluate 20 as not false, thus
+became false. The equality operator then checked to see that false did not
+equal 20. I learned something.
+
   ((328 / 4) == 82)
 
 Since the left side is false, we gotta evaluate the right side of the
