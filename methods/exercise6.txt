@@ -1,0 +1,45 @@
+What does the following error message tell you?
+
+  ArgumentError: wrong number of arguments (1 for 2)
+    from (irb):1:in `calculate_product'
+    from (irb):4
+    from /Users/username/.rvm/rubies/ruby-2.5.3/bin/irb:12:in `<main>'
+
+
+
+This error is telling us that calculate_product method was invoked with the wrong number of arguments. I am guessing that only 1 argument was passed, while it required 2 (Hence the 1 for 2). I'm going to test that on irb now.
+
+  irb(main):001:1* def calculate_product(a, b)
+  irb(main):002:1*   a * b
+  irb(main):003:0> end
+  => :calculate_product
+  irb(main):004:0> calculate_product 15
+  Traceback (most recent call last):
+          5: from /usr/bin/irb:23:in `<main>'
+          4: from /usr/bin/irb:23:in `load'
+          3: from /usr/lib/ruby/gems/2.7.0/gems/irb-1.2.1/exe/irb:11:in `<top (required)>'
+          2: from (irb):4
+          1: from (irb):1:in `calculate_product'
+  ArgumentError (wrong number of arguments (given 1, expected 2))
+
+My output is a little different, but it seems to be the same to me. Let me try 3 instead of 1:
+
+  irb(main):005:0> calculate_product 15 1 2
+  Traceback (most recent call last):
+          3: from /usr/bin/irb:23:in `<main>'
+          2: from /usr/bin/irb:23:in `load'
+          1: from /usr/lib/ruby/gems/2.7.0/gems/irb-1.2.1/exe/irb:11:in `<top (required)>'
+  SyntaxError ((irb):5: syntax error, unexpected integer literal, expecting `end')
+  calculate_product 15 1 2
+                      ^
+  irb(main):006:0> calculate_product(15, 1, 2)
+  Traceback (most recent call last):
+          6: from /usr/bin/irb:23:in `<main>'
+          5: from /usr/bin/irb:23:in `load'
+          4: from /usr/lib/ruby/gems/2.7.0/gems/irb-1.2.1/exe/irb:11:in `<top (required)>'
+          3: from (irb):5
+          2: from (irb):6:in `rescue in irb_binding'
+          1: from (irb):1:in `calculate_product'
+  ArgumentError (wrong number of arguments (given 3, expected 2))
+
+Aha, 2 different errors depending on how I formatted it. I guess without the () it can't detect if you meant to give it too many arguments so it throws a more generic error.
