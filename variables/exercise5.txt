@@ -1,0 +1,22 @@
+Look at the following programs. What does x print to the screen in each case?
+Do they both give errors? Are the errors different? Why?
+
+  x = 0
+  3.times do
+    x += 1
+  end
+  puts x
+
+This program should print 3 to the screen. x is in the outter scope of the 3.
+times block, but blocks can work with variables in an outter scope, so this
+works just fine.
+
+  y = 0
+  3.times do
+    y += 1
+    x = y
+  end
+  puts x
+
+This program should have an error. x is declared inside the scope of the
+3.times block, so the outer scope has no idea it exists.
