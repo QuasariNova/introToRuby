@@ -1,0 +1,10 @@
+What will the following program print to the screen? What will it return?
+
+  def execute(&block)
+    block
+  end
+
+  execute { puts "Hello from inside the execute method!" }
+
+The block that's passed isn't called, so it should evaluate as the object
+representing it. An object representing it should be a Proc.
