@@ -1,0 +1,19 @@
+What will the following program output?
+
+  hash1 = {shoes: "nike", "hat" => "adidas", :hoodie => true}
+  hash2 = {"hat" => "adidas", :shoes => "nike", hoodie: true}
+
+  if hash1 == hash2
+    puts "These hashes are the same!"
+  else
+    puts "These hashes are not the same!"
+  end
+
+While hash1 and hash2 had their key value pairs added in different orders, all
+keys stored are the same and all values assigned to those keys are the same.
+Thus, this will output:
+  These hashes are the same!
+
+If you did hash1.keys == hash2.keys, this would not come out the same, due to
+them having different orders, however hashes really don't care about order like
+arrays do.
