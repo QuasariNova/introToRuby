@@ -1,0 +1,43 @@
+You run the following code...
+
+  names = ['bob', 'joe', 'susan', 'margaret']
+  names['margaret'] = 'jody'
+
+...and get the following error message:
+
+  TypeError: no implicit conversion of String into Integer
+    from (irb):2:in `[]='
+    from (irb):2
+    from /Users/username/.rvm/rubies/ruby-2.5.3/bin/irb:12:in `<main>'
+
+What is the problem and how can it be fixed?
+
+Arrays take an integer index, they are not like hashes that can index based on
+a key. So, by trying to replace 'margaret' this way it throws an error.
+
+Theres a couple ways we could fix this. If you know 'margaret's index, which is 3 and also the last index you could do this:
+
+  names[3] = 'jody'
+
+or this
+
+  names.last = 'jody'
+
+If you were sure it was the last index, you could also do one of these:
+
+  names.pop
+  names.push 'jody'
+
+or
+
+  names.delete_at 3
+  names << 'jody'
+
+However, I assume you might not know where in the array 'margaret' is so you
+would have to find the index first, then change it:
+
+index = names.index('margaret')
+names[index] = 'jody'
+
+This could be a problem if 'margaret' was used multiple times as only the first
+instance would be found.
