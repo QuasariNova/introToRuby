@@ -1,0 +1,29 @@
+What does each method return in the following example?
+
+  arr = [15, 7, 18, 5, 12, 8, 5, 1]
+
+  1. arr.index(5)
+
+Looking up Array#index in the documentation says it returns the first index of
+the value passed to the method or nil if did not find it. So while there are two
+5's in arr, it will find the first at index 3 and return 3.
+
+  2. arr.index[5]
+
+Since index is a method that does not return an array(in this case it would be
+an enumerator), you can not use an indexer on it, thus this should throw an
+error. irb shows:
+
+  irb(main):003:0> arr.index[5]
+  Traceback (most recent call last):
+          4: from /usr/bin/irb:23:in `<main>'
+          3: from /usr/bin/irb:23:in `load'
+          2: from /usr/lib/ruby/gems/2.7.0/gems/irb-1.2.1/exe/irb:11:in `<top (required)>'
+          1: from (irb):3
+  NoMethodError (undefined method `[]' for #<Enumerator: [15, 7, 18, 5, 12, 8, 5, 1]:index>)
+  irb(main):004:0> arr.index(5)
+
+
+  3. arr[5]
+
+Index 5 is 8, so this returns 8.
