@@ -1,0 +1,13 @@
+Given the following code...
+
+  x = "hi there"
+  my_hash = {x: "some value"}
+  my_hash2 = {x => "some value"}
+
+What's the difference between the two hashes that were created?
+
+my_hash has one kvp with a key of :x, which is a symbol.
+my_hash2 has one kvp with a key of "hi there", which is a string.
+
+While my_hash2 was passed the variable x as a key, it's the literal that
+becomes the key, not the variable itself.
